@@ -10,7 +10,7 @@ idea
 dist
 db.sqlite3
 
-/venv
+/venv*
 
 .env.dev
 .env
