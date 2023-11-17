@@ -1,23 +1,21 @@
 version: "3.9"
 
 services:
-  # web:
-  #   build: .
-  #   restart: always
-  #   container_name: app-back
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
+  web:
+    build: .
+    restart: always
+    container_name: app-back
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
 
   db:
     container_name: db
     image: postgres:15.3-alpine
-    expose:
-      - 5432
-    ports:
-      - "5432:5432"
     env_file:
     - .env
     healthcheck:
